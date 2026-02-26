@@ -3,9 +3,6 @@
 # atividade-03-api-http-node
 
 ---
-Nome: Jorge Matheus Bomfim Lopes
-Matrícula: 2023007104
-Variação calculada: 0
 
 ATIVIDADE 03 — API HTTP COM NODE.JS (INDIVIDUAL)
 
@@ -49,11 +46,11 @@ Os dados deverão ser armazenados em memória (array).
 
 Edite esta seção antes de iniciar.
 
-Nome completo:
+Nome completo: Jorge Matheus Bomfim Lopes
 
-Matrícula:
+Matrícula: 2023007104
 
-Variação calculada:
+Variação calculada: 0
 
 Cálculo da variação:
 Último dígito da matrícula % 4
