@@ -1,6 +1,7 @@
 //Código do servidor
 
 import http from "http";
+import getRawBody from "raw-body";
 
 const PORT = 3000;
 
@@ -12,7 +13,17 @@ function sendJson(res, statusCode, data) {
   res.end(JSON.stringify(data));
 }
 
-const server = http.createServer((req, res) => {
+function validateBody(body) {
+  const { aluno, assunto } = body;
+
+  if (!aluno || !assunto) {
+    return false;
+  }
+
+  return true;
+}
+
+const server = http.createServer(async (req, res) => {
   const { method, url } = req;
 
   if (method === "GET" && url === "/health") {
@@ -33,6 +44,32 @@ const server = http.createServer((req, res) => {
     }
 
     return sendJson(res, 200, atendimento);
+  }
+
+  if (method === "POST" && url === "/atendimentos") {
+    try {
+      const rawBody = await getRawBody(req);
+      const body = JSON.parse(rawBody.toString());
+
+      if (!validateBody(body)) {
+        return sendJson(res, 422, {
+          erro: "Campos obrigatórios ausentes",
+        });
+      }
+
+      const novoAtendimento = {
+        id: currentId++,
+        ...body,
+      };
+
+      atendimentos.push(novoAtendimento);
+
+      return sendJson(res, 201, novoAtendimento);
+    } catch (error) {
+      return sendJson(res, 400, {
+        erro: "JSON inválido",
+      });
+    }
   }
 
   sendJson(res, 404, { erro: "Rota não encontrada" });
