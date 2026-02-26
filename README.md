@@ -3,6 +3,9 @@
 # atividade-03-api-http-node
 
 ---
+Nome: Jorge Matheus Bomfim Lopes
+Matrícula: 2023007104
+Variação calculada: 0
 
 ATIVIDADE 03 — API HTTP COM NODE.JS (INDIVIDUAL)
 
