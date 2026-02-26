@@ -4,6 +4,8 @@ import http from "http";
 
 const PORT = 3000;
 
+const atendimentos = [];
+
 function sendJson(res, statusCode, data) {
   res.writeHead(statusCode, { "Content-Type": "application/json" });
   res.end(JSON.stringify(data));
@@ -14,6 +16,10 @@ const server = http.createServer((req, res) => {
 
   if (method === "GET" && url === "/health") {
     return sendJson(res, 200, { status: "OK" });
+  }
+
+  if (method === "GET" && url === "/atendimentos") {
+    return sendJson(res, 200, atendimentos);
   }
 
   sendJson(res, 404, { erro: "Rota não encontrada" });
