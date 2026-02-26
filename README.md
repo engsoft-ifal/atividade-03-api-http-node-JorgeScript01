@@ -50,7 +50,9 @@ Os dados deverão ser armazenados em memória (array).
 Edite esta seção antes de iniciar.
 
 Nome completo:
+
 Matrícula:
+
 Variação calculada:
 
 Cálculo da variação:
